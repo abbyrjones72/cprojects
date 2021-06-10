@@ -1,1 +1,1 @@
-Hello, this text is being written to a .txt file.
+content: this is test written from a file stream.
