@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        /* if no max read position is specified, the filesize serves as the end position */
+        /* if no max_read position is specified, the filesize serves as the end position */
         max_read = filesize;
     }
 
