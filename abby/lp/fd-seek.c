@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
     if(argc < 3 || argc > 4)
     {
-        fprintf(stderr, "Usage: %s [path [from position] [bytes to read]\n", argv[0]);
+        fprintf(stderr, "Usage: %s [path] [from position] [bytes to read]\n", argv[0]);
         return 1;
     }
 
@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
     }
     else
     {
+        /* if no max read position is specified, the filesize serves as the end position */
         max_read = filesize;
     }
 
