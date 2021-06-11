@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    printf("Type two floating point numbers separated by a space.");
+    printf("Type two floating point numbers separated by a space: \n");
     scanf("%f %f", &x[0], &x[1]);
 
     /* fwrite(void *ptr, size_t size, size_t num_mem, FILE *stream) */
