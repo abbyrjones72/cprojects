@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 int sum_brute_force(void);
-int sum_brute_force_2(void);
+int sum_brute_force_2();
 int sum_n_via_gauss(void);
 
 int main(void)
@@ -14,4 +14,27 @@ int main(void)
 	
 	
 	return 0;
+}
+
+int sum_brute_force()
+{
+	int result;
+	for(int i = 1; i <= 100; i++)
+	{
+		result += i;
+	}
+	return result;
+}
+
+int sum_brute_force_2()
+{
+	int n = 1;
+	int result;
+
+	while(n <= 100)
+	{
+		result += n;
+	}
+
+	return result;
 }
