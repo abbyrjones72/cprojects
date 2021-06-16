@@ -22,7 +22,7 @@ int main(void)
     }
     else
     {
-        pretty2DArray(size2D, size1D, array2D);
+        prettyPrint2DArray(size2D, size1D, array2D);
     }
 
     total = sum2DArray(size2D, size1D, array2D);
@@ -35,10 +35,12 @@ int main(void)
     }
     else
     {
-        pretty3DArray(size3D, size2D, size1D, array3D);
+        prettyPrint3DArray(size3D, size2D, size1D, array3D);
     }
     total = sum3DArray(size3D, size2D, size1D, array3D);
     printf("Total for 3Darray is %d\n\n", total);
+
+    return 0;
 
 }
 
@@ -63,12 +65,11 @@ void initialize3DArray(int z, int y, int x, int array[z][y][x])
             {
                 array[k][j][i] = (100*(k+1) + (10*j+1)) + (i+1);
             }
-            
         }
     }
 }
 
-void printd2DArray(int row, int col, int array2D[row][col])
+void print2DArray(int row, int col, int array2D[row][col])
 {
     for(int j = 0; j < row; j++)
     {
@@ -84,26 +85,28 @@ void printd2DArray(int row, int col, int array2D[row][col])
 void prettyPrint2DArray(int row, int col, int array[row][col])
 {
     /* print column offsets as heading */
-    printf("  ");
-    for(int i = 0; i < row; i++)
+    printf("    ");
+    for(int i = 0; i < col; i++)
     {
-        printf(" [%1d]", i);
+        printf("  [%1d]", i);
     }
     printf("\n");
 
     for(int j = 0; j < row; j++)
     {
         /* print row offset as lead in */
-        printf("[%1d]", j);
+        printf(" [%1d]", j);
 
         for(int i = 0; i < col; i++)
         {
-            printf("%4d", array[j][i]);
+            printf(" %4d", array[j][i]);
         }
+        printf("\n");
     }
+    printf("\n");
 }
 
-void printd3DArray(int z, int y, int x, int array[z][y][x])
+void print3DArray(int z, int y, int x, int array[z][y][x])
 {
     for(int k = 0; k < z; k++)
     {
@@ -124,23 +127,24 @@ void prettyPrint3DArray(int z, int y, int x, int array[z][y][x])
     for(int k = 0; k < z; k++)
     {
         /* print z offset as lead-in */
-        printf("[%1d]", k);
+        printf(" [%1d]", k);
 
         /* print x offset heading */
-        printf("   ");
+        printf("           ");
 
         for(int i = 0; i < x; i++)
         {
-            printf("\n");
+            printf("  [%1d]", i);
         }
+        printf("\n");
 
         for(int j = 0; j < y; j++)  /* j : 0..(y-1) */
         {
             /* print y offset as lead-in */
-            printf("    [%1d]", j);
+            printf("            [%1d]", j);
             for(int i = 0; i < x; i++)
             {
-                printf("%4d", array[k][j][i]);
+                printf(" %4d", array[k][j][i]);
             }
             printf("\n");
         }
