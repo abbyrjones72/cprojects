@@ -1,5 +1,16 @@
 #include <stdio.h>
 
+void show_info(int height, int width, int length)
+{
+	printf("sizeof(int) = %2lu\n", sizeof(int));
+	printf("sizeof(int*) = %2lu\n", sizeof(int*));
+	printf("[height, width, length] = [%2d, %2d, %2d]\n\n", height, width, length);
+}
+
+void show_variable(char* pId, int* pDim)
+{
+	printf("address of %s = %#lx, value at address = %2d\n", pId, (unsigned long)pDim, *pDim);
+}
 
 double rect_perimeter(double *pH, double *pW)
 {
@@ -10,13 +21,30 @@ double rect_perimeter(double *pH, double *pW)
 
 int main(void)
 {
-	double height = 15.0;
-	double width = 22.5;
+	int height = 10;
+	int width = 20;
+	int length = 40;
+	int* pDimension = NULL;
+	char* pIdentifier = NULL;
 
-	double* pHeight = &height;
-	double* pWidth = &width;
+	printf("\nValues:\n\n");
+	show_info(height, width, length);
+	printf("address of pDimension = %#lx\n", (unsigned long)&pDimension);
+	printf("\nusing address fo each named variables...\n\n");
 
-	double perimeter = rect_perimeter(pHeight, pWidth);
-	printf("%#lx\n", (unsigned long)(&perimeter));
+	pIdentifier = "height";
+	pDimension = &height;
+	show_variable(pIdentifier, pDimension);
+
+	pIdentifier = "width";
+	pDimension = &width;
+	show_variable(pIdentifier, pDimension);
+
+	pIdentifier = "length";
+	pDimension = &length;
+	show_variable(pIdentifier, pDimension);
+
+
 	return 0;
 }
+
