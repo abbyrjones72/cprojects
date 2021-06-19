@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 
-/* we always want to wait for the child process to avoid creating zombie processes */
+/* we always want to wait for the child process to end to avoid creating zombie processes */
 
 int main(void)
 {
